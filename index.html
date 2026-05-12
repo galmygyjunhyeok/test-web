@@ -3,379 +3,1202 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>자기소개 - 김준혁</title>
+  <title>자기소개</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    /* ════════════════════════════════════════
+       RESET
+    ════════════════════════════════════════ */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px; transition:background .5s; }
 
-    body {
-      background: #008080;
-      font-family: 'Arial', sans-serif;
-      font-size: 13px;
-      color: #000;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-    }
+    /* ════════════════════════════════════════
+       WINDOWS 98
+    ════════════════════════════════════════ */
+    .era-98 { background:#008080; font-family:Arial,sans-serif; font-size:13px; }
+    .era-98 .window { background:#c0c0c0; border:2px solid; border-color:#fff #808080 #808080 #fff; box-shadow:2px 2px 0 #000; }
+    .era-98 .title-bar { background:linear-gradient(to right,#000080,#1084d0); color:#fff; font-weight:bold; font-size:12px; padding:3px 5px; display:flex; align-items:center; justify-content:space-between; user-select:none; }
+    .era-98 .t-btn { width:16px; height:14px; background:#c0c0c0; color:#000; border:1px solid; border-color:#fff #808080 #808080 #fff; font-size:9px; display:flex; align-items:center; justify-content:center; cursor:pointer; }
+    .era-98 .t-btn:active { border-color:#808080 #fff #fff #808080; }
+    .era-98 .menu-bar { background:#c0c0c0; border-bottom:1px solid #808080; padding:2px 4px; display:flex; }
+    .era-98 .menu-item { padding:2px 8px; font-size:12px; cursor:pointer; }
+    .era-98 .menu-item:hover { background:#000080; color:#fff; }
+    .era-98 .toolbar { background:#c0c0c0; border-bottom:1px solid #808080; padding:3px 6px; display:flex; align-items:center; justify-content:space-between; gap:4px; }
+    .era-98 .window-body { padding:10px; display:flex; flex-direction:column; gap:8px; }
+    .era-98 .panel { background:#c0c0c0; border:2px solid; border-color:#808080 #fff #fff #808080; padding:10px; }
+    .era-98 .sec-label { font-size:11px; font-weight:bold; color:#000080; border-bottom:1px solid #808080; padding-bottom:2px; margin-bottom:6px; }
+    .era-98 .btn { background:#c0c0c0; border:2px solid; border-color:#fff #808080 #808080 #fff; padding:4px 14px; font-size:12px; cursor:pointer; color:#000; font-family:Arial; }
+    .era-98 .btn:active { border-color:#808080 #fff #fff #808080; padding:5px 13px 3px 15px; }
+    .era-98 .inp { background:#fff; border:2px solid; border-color:#808080 #fff #fff #808080; padding:3px 6px; font-size:12px; font-family:Arial; outline:none; width:100%; }
+    .era-98 .inp:focus { outline:1px dotted #000; }
+    .era-98 .lvbar-bg { background:#fff; border:2px solid; border-color:#808080 #fff #fff #808080; height:20px; overflow:hidden; }
+    .era-98 .lvbar-fill { background:#000080; height:100%; transition:width 1s ease-out; }
+    .era-98 .avatar { border:2px solid; border-color:#808080 #fff #fff #808080; }
+    .era-98 .status-bar { background:#c0c0c0; border-top:1px solid #808080; padding:2px 6px; font-size:11px; color:#333; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+    .era-98 .s-panel { border:1px solid; border-color:#808080 #fff #fff #808080; padding:1px 6px; }
+    .era-98 .skill-chip { background:#c0c0c0; border:1px solid; border-color:#fff #808080 #808080 #fff; font-size:11px; padding:2px 8px; }
+    .era-98 .ai-badge { background:#000080; color:#fff; font-size:11px; padding:1px 8px; border:1px solid; border-color:#fff #808080 #808080 #fff; }
+    .era-98 .level-num { color:#000080; font-size:42px; font-weight:bold; }
+    .era-98 .stat-val  { color:#000080; }
+    .era-98 .repo-name { color:#000080; }
+    .era-98 .contact-btn { background:#c0c0c0; border:2px solid; border-color:#fff #808080 #808080 #fff; padding:4px 14px; font-size:12px; text-decoration:none; color:#000; display:inline-block; }
+    .era-98 .info-val { font-weight:bold; }
 
-    /* 윈도우 창 */
-    .window {
-      background: #c0c0c0;
-      border-top: 2px solid #fff;
-      border-left: 2px solid #fff;
-      border-right: 2px solid #808080;
-      border-bottom: 2px solid #808080;
-      width: 580px;
-      box-shadow: 2px 2px 0 #000;
-    }
+    /* ════════════════════════════════════════
+       WINDOWS XP
+    ════════════════════════════════════════ */
+    .era-xp { background:linear-gradient(180deg,#245EDC,#3A7BD5 50%,#1a5cb5); font-family:Tahoma,sans-serif; font-size:13px; }
+    .era-xp .window { background:#ECE9D8; border:1px solid #0A246A; border-radius:8px 8px 0 0; box-shadow:3px 3px 10px rgba(0,0,0,.45); overflow:hidden; }
+    .era-xp .title-bar { background:linear-gradient(180deg,#5584C0,#3168CE 5%,#1B50B4 50%,#1E4FAC 51%,#3672D1 95%,#5584C0); color:#fff; font-weight:bold; font-size:12px; padding:4px 6px; display:flex; align-items:center; justify-content:space-between; user-select:none; }
+    .era-xp .t-btn { width:21px; height:17px; font-size:10px; font-weight:bold; border-radius:3px; border:1px solid; display:flex; align-items:center; justify-content:center; cursor:pointer; }
+    .era-xp .t-btn.close { background:linear-gradient(180deg,#f55,#c00); border-color:#800; color:#fff; }
+    .era-xp .t-btn.min   { background:linear-gradient(180deg,#fd9,#e80); border-color:#840; color:#000; }
+    .era-xp .t-btn.max   { background:linear-gradient(180deg,#9df,#08a); border-color:#047; color:#fff; }
+    .era-xp .menu-bar { background:#ECE9D8; border-bottom:1px solid #7f9db9; padding:2px 4px; display:flex; }
+    .era-xp .menu-item { padding:2px 8px; font-size:11px; cursor:pointer; }
+    .era-xp .menu-item:hover { background:#316AC5; color:#fff; }
+    .era-xp .toolbar { background:#ECE9D8; border-bottom:1px solid #7f9db9; padding:3px 6px; display:flex; align-items:center; justify-content:space-between; gap:4px; }
+    .era-xp .window-body { padding:10px; display:flex; flex-direction:column; gap:8px; }
+    .era-xp .panel { background:#fff; border:1px solid #7f9db9; border-radius:3px; padding:10px; }
+    .era-xp .sec-label { font-size:11px; font-weight:bold; color:#003399; border-bottom:1px solid #7f9db9; padding-bottom:2px; margin-bottom:6px; }
+    .era-xp .btn { background:linear-gradient(180deg,#eef5ff,#d9ecff 50%,#b8d9f5); border:1px solid #7f9db9; border-radius:3px; padding:4px 14px; font-size:11px; cursor:pointer; color:#003399; font-family:Tahoma; }
+    .era-xp .btn:hover { background:linear-gradient(180deg,#d9ecff,#b8d9f5); }
+    .era-xp .inp { background:#fff; border:1px solid #7f9db9; padding:3px 6px; font-size:12px; font-family:Tahoma; outline:none; width:100%; border-radius:2px; }
+    .era-xp .lvbar-bg { background:#fff; border:1px solid #7f9db9; height:20px; border-radius:2px; overflow:hidden; }
+    .era-xp .lvbar-fill { background:linear-gradient(180deg,#5ba9f5,#1e7cde); height:100%; transition:width 1s ease-out; }
+    .era-xp .avatar { border:2px solid #7f9db9; border-radius:2px; }
+    .era-xp .status-bar { background:#ECE9D8; border-top:1px solid #7f9db9; padding:2px 8px; font-size:11px; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+    .era-xp .s-panel { border:1px inset #7f9db9; padding:1px 6px; }
+    .era-xp .skill-chip { background:linear-gradient(180deg,#eef5ff,#d9ecff); border:1px solid #7f9db9; border-radius:10px; font-size:11px; padding:2px 10px; }
+    .era-xp .ai-badge { background:linear-gradient(180deg,#316AC5,#1a50a0); color:#fff; font-size:11px; padding:1px 10px; border-radius:10px; }
+    .era-xp .level-num { color:#003399; font-size:42px; font-weight:bold; }
+    .era-xp .stat-val  { color:#003399; }
+    .era-xp .repo-name { color:#003399; }
+    .era-xp .contact-btn { background:linear-gradient(180deg,#eef5ff,#d9ecff 50%,#b8d9f5); border:1px solid #7f9db9; border-radius:3px; padding:4px 14px; font-size:11px; text-decoration:none; color:#003399; display:inline-block; }
+    .era-xp .info-val { font-weight:bold; color:#003399; }
 
-    /* 타이틀 바 */
-    .title-bar {
-      background: linear-gradient(to right, #000080, #1084d0);
-      color: #fff;
-      font-weight: bold;
-      font-size: 12px;
-      padding: 3px 4px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      user-select: none;
-    }
+    /* ════════════════════════════════════════
+       WINDOWS 7 AERO
+    ════════════════════════════════════════ */
+    .era-7 { background:linear-gradient(160deg,#1a3a5c,#0d1b2e); font-family:'Segoe UI',Arial,sans-serif; font-size:13px; }
+    .era-7 .window { background:rgba(205,225,245,.78); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); border:1px solid rgba(140,190,240,.7); border-radius:8px 8px 0 0; box-shadow:0 10px 40px rgba(0,0,0,.65),inset 0 1px 0 rgba(255,255,255,.8); overflow:hidden; }
+    .era-7 .title-bar { background:linear-gradient(180deg,rgba(200,228,255,.92),rgba(145,198,248,.8)); color:#1a3060; font-size:12px; padding:6px 8px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(130,185,235,.5); user-select:none; }
+    .era-7 .t-btn { width:26px; height:19px; border-radius:4px; cursor:pointer; font-size:10px; background:rgba(255,255,255,.6); border:1px solid rgba(100,155,225,.5); color:#333; display:flex; align-items:center; justify-content:center; }
+    .era-7 .t-btn.close { background:rgba(210,55,55,.82); color:#fff; border-color:rgba(160,30,30,.6); }
+    .era-7 .menu-bar { background:rgba(180,215,248,.5); border-bottom:1px solid rgba(130,185,235,.4); padding:2px 6px; display:flex; }
+    .era-7 .menu-item { padding:2px 8px; font-size:12px; cursor:pointer; border-radius:3px; }
+    .era-7 .menu-item:hover { background:rgba(100,160,220,.4); }
+    .era-7 .toolbar { background:rgba(180,215,248,.4); border-bottom:1px solid rgba(130,185,235,.35); padding:4px 8px; display:flex; align-items:center; justify-content:space-between; gap:4px; }
+    .era-7 .window-body { padding:12px; display:flex; flex-direction:column; gap:8px; }
+    .era-7 .panel { background:rgba(255,255,255,.5); backdrop-filter:blur(8px); border:1px solid rgba(130,185,235,.4); border-radius:4px; padding:10px; }
+    .era-7 .sec-label { font-size:11px; font-weight:600; color:#1F6EBD; border-bottom:1px solid rgba(130,185,235,.5); padding-bottom:2px; margin-bottom:6px; }
+    .era-7 .btn { background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(178,212,244,.8)); border:1px solid rgba(100,155,225,.6); border-radius:4px; padding:5px 14px; font-size:12px; cursor:pointer; box-shadow:0 1px 2px rgba(0,0,0,.2); font-family:'Segoe UI'; }
+    .era-7 .inp { background:rgba(255,255,255,.9); border:1px solid rgba(100,155,225,.6); padding:4px 8px; font-size:12px; font-family:'Segoe UI'; outline:none; width:100%; border-radius:3px; }
+    .era-7 .lvbar-bg { background:rgba(255,255,255,.5); border:1px solid rgba(100,155,225,.5); height:20px; border-radius:4px; overflow:hidden; }
+    .era-7 .lvbar-fill { background:linear-gradient(180deg,#4ea8f0,#1a78d4 50%,#4ea8f0); height:100%; box-shadow:0 0 8px rgba(30,120,212,.8); transition:width 1s ease-out; }
+    .era-7 .avatar { border:2px solid rgba(130,185,235,.7); border-radius:4px; }
+    .era-7 .status-bar { background:rgba(178,212,244,.6); border-top:1px solid rgba(130,185,235,.4); padding:3px 8px; font-size:11px; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+    .era-7 .s-panel { border:1px solid rgba(130,185,235,.4); padding:1px 6px; border-radius:2px; }
+    .era-7 .skill-chip { background:rgba(255,255,255,.6); border:1px solid rgba(130,185,235,.4); border-radius:4px; font-size:11px; padding:2px 8px; }
+    .era-7 .ai-badge { background:linear-gradient(180deg,rgba(30,120,212,.9),rgba(10,80,160,.9)); color:#fff; font-size:11px; padding:2px 10px; border-radius:4px; box-shadow:0 1px 3px rgba(0,0,0,.3); }
+    .era-7 .level-num { color:#1a78d4; font-size:42px; font-weight:bold; }
+    .era-7 .stat-val  { color:#1F6EBD; }
+    .era-7 .repo-name { color:#1F6EBD; }
+    .era-7 .contact-btn { background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(178,212,244,.8)); border:1px solid rgba(100,155,225,.6); border-radius:4px; padding:5px 14px; font-size:12px; text-decoration:none; color:#1F6EBD; display:inline-block; }
+    .era-7 .info-val { font-weight:bold; color:#1F6EBD; }
 
-    .title-bar-left {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
+    /* ════════════════════════════════════════
+       WINDOWS 10
+    ════════════════════════════════════════ */
+    .era-10 { background:#1a1a1a; font-family:'Segoe UI',Arial,sans-serif; font-size:13px; }
+    .era-10 .window { background:#f3f3f3; border:1px solid #ccc; box-shadow:0 6px 24px rgba(0,0,0,.5); }
+    .era-10 .title-bar { background:#f3f3f3; color:#333; font-size:12px; padding:8px 12px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #e0e0e0; user-select:none; }
+    .era-10 .t-btn { width:46px; height:30px; font-size:10px; color:#333; display:flex; align-items:center; justify-content:center; cursor:pointer; border:none; background:transparent; }
+    .era-10 .t-btn:hover { background:#e0e0e0; }
+    .era-10 .t-btn.close:hover { background:#c42b1c; color:#fff; }
+    .era-10 .menu-bar { background:#f3f3f3; border-bottom:1px solid #e0e0e0; padding:0 8px; display:flex; }
+    .era-10 .menu-item { padding:5px 10px; font-size:12px; cursor:pointer; }
+    .era-10 .menu-item:hover { background:#e0e0e0; }
+    .era-10 .toolbar { background:#f3f3f3; border-bottom:1px solid #e0e0e0; padding:5px 12px; display:flex; align-items:center; justify-content:space-between; gap:6px; }
+    .era-10 .window-body { padding:16px; display:flex; flex-direction:column; gap:10px; }
+    .era-10 .panel { background:#fff; border:1px solid #e0e0e0; padding:12px; }
+    .era-10 .sec-label { font-size:10px; font-weight:600; color:#0078d4; text-transform:uppercase; letter-spacing:.05em; border-bottom:2px solid #0078d4; padding-bottom:3px; margin-bottom:8px; }
+    .era-10 .btn { background:#0078d4; color:#fff; border:none; padding:7px 18px; font-size:13px; cursor:pointer; font-family:'Segoe UI'; }
+    .era-10 .btn:hover { background:#006cbe; }
+    .era-10 .inp { background:#fff; border:1px solid #888; border-bottom:2px solid #0078d4; padding:6px 8px; font-size:13px; font-family:'Segoe UI'; outline:none; width:100%; }
+    .era-10 .lvbar-bg { background:#e0e0e0; height:6px; }
+    .era-10 .lvbar-fill { background:#0078d4; height:100%; transition:width 1s ease-out; }
+    .era-10 .avatar { }
+    .era-10 .status-bar { background:#0078d4; color:#fff; padding:5px 12px; font-size:11px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+    .era-10 .s-panel { border-left:1px solid rgba(255,255,255,.3); padding-left:8px; }
+    .era-10 .skill-chip { background:#e3f2fd; color:#0078d4; border:1px solid #b3d9f7; font-size:11px; padding:2px 8px; }
+    .era-10 .ai-badge { background:#fff; color:#0078d4; font-size:11px; padding:2px 10px; font-weight:600; }
+    .era-10 .level-num { color:#0078d4; font-size:42px; font-weight:bold; }
+    .era-10 .stat-val  { color:#0078d4; }
+    .era-10 .repo-name { color:#0078d4; }
+    .era-10 .contact-btn { background:#0078d4; color:#fff; border:none; padding:7px 18px; font-size:13px; text-decoration:none; display:inline-block; }
+    .era-10 .info-val { font-weight:bold; color:#0078d4; }
 
-    .title-icon {
-      font-size: 14px;
-    }
+    /* ════════════════════════════════════════
+       WINDOWS 11
+    ════════════════════════════════════════ */
+    .era-11 { background:radial-gradient(ellipse at 50% -10%,#5a7fd4,#7c5ce7 30%,#1a1a2e 70%); font-family:'Segoe UI Variable','Segoe UI',Arial,sans-serif; font-size:13px; }
+    .era-11 .window { background:rgba(243,243,243,.88); backdrop-filter:blur(48px) saturate(180%); -webkit-backdrop-filter:blur(48px) saturate(180%); border:1px solid rgba(255,255,255,.55); border-radius:12px; box-shadow:0 20px 60px rgba(0,0,0,.55),0 0 0 1px rgba(0,0,0,.1); overflow:hidden; }
+    .era-11 .title-bar { background:transparent; color:#1a1a1a; font-size:12px; padding:12px 16px 6px; display:flex; align-items:center; justify-content:space-between; user-select:none; }
+    .era-11 .t-btn { width:13px; height:13px; border-radius:50%; border:none; cursor:pointer; font-size:0; }
+    .era-11 .t-btn.close { background:#ff5f57; }
+    .era-11 .t-btn.min   { background:#febc2e; }
+    .era-11 .t-btn.max   { background:#28c840; }
+    .era-11 .menu-bar { background:rgba(0,0,0,.03); border-bottom:1px solid rgba(0,0,0,.07); padding:2px 12px; display:flex; }
+    .era-11 .menu-item { padding:4px 10px; font-size:12px; cursor:pointer; border-radius:4px; }
+    .era-11 .menu-item:hover { background:rgba(0,0,0,.06); }
+    .era-11 .toolbar { background:rgba(0,0,0,.03); border-bottom:1px solid rgba(0,0,0,.07); padding:6px 16px; display:flex; align-items:center; justify-content:space-between; gap:6px; }
+    .era-11 .window-body { padding:16px; display:flex; flex-direction:column; gap:10px; }
+    .era-11 .panel { background:rgba(255,255,255,.72); backdrop-filter:blur(12px); border:1px solid rgba(0,0,0,.08); border-radius:10px; padding:14px; box-shadow:0 2px 10px rgba(0,0,0,.07); }
+    .era-11 .sec-label { font-size:11px; font-weight:700; color:#0078d4; letter-spacing:.04em; margin-bottom:10px; }
+    .era-11 .btn { background:#0078d4; color:#fff; border:none; border-radius:6px; padding:8px 20px; font-size:13px; cursor:pointer; box-shadow:0 2px 6px rgba(0,120,212,.35); transition:all .15s; font-family:'Segoe UI'; }
+    .era-11 .btn:hover { background:#006cbe; transform:translateY(-1px); box-shadow:0 4px 10px rgba(0,120,212,.45); }
+    .era-11 .inp { background:rgba(255,255,255,.85); border:1px solid rgba(0,0,0,.15); padding:8px 12px; font-size:13px; font-family:'Segoe UI'; outline:none; width:100%; border-radius:6px; transition:border-color .15s,box-shadow .15s; }
+    .era-11 .inp:focus { border-color:#0078d4; box-shadow:0 0 0 3px rgba(0,120,212,.15); }
+    .era-11 .lvbar-bg { background:rgba(0,0,0,.1); height:8px; border-radius:4px; overflow:hidden; }
+    .era-11 .lvbar-fill { background:linear-gradient(90deg,#0078d4,#7c5ce7); height:100%; border-radius:4px; transition:width 1.2s cubic-bezier(.34,1.56,.64,1); }
+    .era-11 .avatar { border-radius:50%; border:3px solid rgba(0,120,212,.3); }
+    .era-11 .status-bar { background:rgba(0,0,0,.05); border-top:1px solid rgba(0,0,0,.08); padding:6px 16px; font-size:11px; color:#666; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+    .era-11 .s-panel { border-left:1px solid rgba(0,0,0,.12); padding-left:8px; }
+    .era-11 .skill-chip { background:rgba(0,120,212,.1); color:#0078d4; border:1px solid rgba(0,120,212,.2); border-radius:12px; font-size:11px; padding:3px 10px; }
+    .era-11 .ai-badge { background:linear-gradient(135deg,#0078d4,#7c5ce7); color:#fff; font-size:11px; padding:3px 12px; border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,.2); }
+    .era-11 .level-num { background:linear-gradient(135deg,#0078d4,#7c5ce7); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; font-size:42px; font-weight:bold; }
+    .era-11 .stat-val  { color:#0078d4; }
+    .era-11 .repo-name { color:#0078d4; }
+    .era-11 .contact-btn { background:#0078d4; color:#fff; border:none; border-radius:6px; padding:8px 20px; font-size:13px; text-decoration:none; display:inline-block; transition:all .15s; }
+    .era-11 .contact-btn:hover { background:#006cbe; transform:translateY(-1px); }
+    .era-11 .info-val { font-weight:bold; color:#0078d4; }
 
-    .title-bar-buttons {
-      display: flex;
-      gap: 2px;
-    }
+    /* ════════════════════════════════════════
+       공통 레이아웃
+    ════════════════════════════════════════ */
+    .main-window { width:600px; }
+    .t-bar-left  { display:flex; align-items:center; gap:6px; }
+    .t-bar-right { display:flex; align-items:center; gap:3px; }
+    .toolbar-left  { display:flex; align-items:center; gap:4px; }
+    .toolbar-right { display:flex; align-items:center; gap:4px; }
 
-    .title-btn {
-      width: 16px;
-      height: 14px;
-      background: #c0c0c0;
-      border-top: 1px solid #fff;
-      border-left: 1px solid #fff;
-      border-right: 1px solid #808080;
-      border-bottom: 1px solid #808080;
-      font-size: 9px;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      color: #000;
-    }
+    .profile-row { display:flex; align-items:flex-start; gap:14px; }
+    .profile-avatar { width:72px; height:72px; object-fit:cover; flex-shrink:0; font-size:2.2rem; display:flex; align-items:center; justify-content:center; }
+    .era-98 .profile-avatar { background:#fff; border:2px solid; border-color:#808080 #fff #fff #808080; }
+    .era-xp .profile-avatar { background:#fff; border:2px solid #7f9db9; border-radius:2px; }
+    .era-7  .profile-avatar { background:rgba(255,255,255,.5); border:2px solid rgba(130,185,235,.7); border-radius:4px; }
+    .era-10 .profile-avatar { background:#e0e0e0; }
+    .era-11 .profile-avatar { background:rgba(0,120,212,.1); border-radius:50%; }
 
-    .title-btn:active {
-      border-top: 1px solid #808080;
-      border-left: 1px solid #808080;
-      border-right: 1px solid #fff;
-      border-bottom: 1px solid #fff;
-    }
+    .profile-text h1 { font-size:17px; font-weight:bold; }
+    .profile-subtitle { font-size:12px; color:#666; margin-top:2px; }
+    .profile-bio { font-size:12px; color:#444; margin-top:6px; line-height:1.55; }
 
-    /* 메뉴바 */
-    .menu-bar {
-      background: #c0c0c0;
-      padding: 2px 4px;
-      display: flex;
-      gap: 0;
-      border-bottom: 1px solid #808080;
-    }
+    .info-grid { display:grid; grid-template-columns:1fr 1fr; gap:5px; }
+    .info-row  { display:flex; gap:6px; font-size:12px; }
+    .info-key  { color:#888; min-width:38px; flex-shrink:0; }
 
-    .menu-item {
-      padding: 2px 8px;
-      font-size: 12px;
-      cursor: pointer;
-    }
+    .skills-row { display:flex; flex-wrap:wrap; gap:5px; }
+    .contact-row { display:flex; gap:8px; flex-wrap:wrap; }
+    .repo-item { display:flex; justify-content:space-between; padding:4px 0; font-size:12px; border-bottom:1px solid rgba(0,0,0,.06); }
+    .repo-item:last-child { border-bottom:none; }
+    .repo-stars { color:#888; font-size:11px; }
 
-    .menu-item:hover {
-      background: #000080;
-      color: #fff;
-    }
+    /* ════════════════════════════════════════
+       팝업 공통
+    ════════════════════════════════════════ */
+    .overlay { position:fixed; inset:0; background:rgba(0,0,0,.45); display:flex; align-items:center; justify-content:center; z-index:100; }
 
-    /* 콘텐츠 영역 */
-    .window-body {
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
+    /* 설정 팝업 */
+    .settings-win { width:500px; }
+    .tab-bar { display:flex; padding:4px 4px 0; border-bottom:2px solid #808080; }
+    .era-98 .tab-bar { border-color:#808080; }
+    .era-xp .tab-bar { border-color:#7f9db9; }
+    .era-7  .tab-bar { border-color:rgba(130,185,235,.5); }
+    .era-10 .tab-bar { border-color:#e0e0e0; }
+    .era-11 .tab-bar { border-color:rgba(0,0,0,.1); }
+    .tab { padding:4px 16px; font-size:12px; cursor:pointer; margin-right:2px; margin-bottom:-2px; position:relative; }
+    .era-98 .tab { background:#c0c0c0; border-top:2px solid #808080; border-left:2px solid #808080; border-right:2px solid #fff; }
+    .era-98 .tab.active { border-color:#fff #808080 #c0c0c0 #fff; font-weight:bold; z-index:1; }
+    .era-xp .tab { background:#ECE9D8; border:1px solid #7f9db9; border-bottom:none; border-radius:3px 3px 0 0; }
+    .era-xp .tab.active { background:#fff; font-weight:bold; z-index:1; }
+    .era-7  .tab { background:rgba(180,215,248,.4); border:1px solid rgba(130,185,235,.4); border-bottom:none; border-radius:4px 4px 0 0; }
+    .era-7  .tab.active { background:rgba(255,255,255,.6); font-weight:600; z-index:1; }
+    .era-10 .tab { background:#f3f3f3; border:1px solid #e0e0e0; border-bottom:none; }
+    .era-10 .tab.active { background:#fff; border-bottom:2px solid #0078d4; font-weight:600; color:#0078d4; z-index:1; }
+    .era-11 .tab { background:rgba(0,0,0,.04); border:1px solid rgba(0,0,0,.08); border-bottom:none; border-radius:6px 6px 0 0; }
+    .era-11 .tab.active { background:rgba(255,255,255,.8); font-weight:600; color:#0078d4; z-index:1; }
 
-    /* 패널 (sunken) */
-    .panel {
-      background: #c0c0c0;
-      border-top: 2px solid #808080;
-      border-left: 2px solid #808080;
-      border-right: 2px solid #fff;
-      border-bottom: 2px solid #fff;
-      padding: 10px;
-    }
+    .tab-pane { display:none; padding:12px; max-height:350px; overflow-y:auto; }
+    .tab-pane.active { display:block; }
+    .form-row { display:flex; align-items:flex-start; gap:8px; margin-bottom:7px; }
+    .form-row label { width:85px; font-size:12px; flex-shrink:0; text-align:right; padding-top:4px; }
+    .form-row textarea.inp { resize:vertical; min-height:52px; }
+    .form-divider { height:1px; background:rgba(0,0,0,.1); margin:10px 0; }
+    .popup-footer { display:flex; justify-content:flex-end; gap:6px; padding:8px 10px; border-top:1px solid rgba(0,0,0,.1); }
+    .err-msg { color:#c00; font-size:11px; margin-top:4px; min-height:14px; }
 
-    /* 프로필 패널 */
-    .profile-panel {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+    /* AI 분석 팝업 */
+    .ai-win { width:500px; }
+    .ai-screen { display:none; }
+    .ai-screen.active { display:block; }
 
-    .avatar-box {
-      width: 72px;
-      height: 72px;
-      background: #fff;
-      border-top: 2px solid #808080;
-      border-left: 2px solid #808080;
-      border-right: 2px solid #fff;
-      border-bottom: 2px solid #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.2rem;
-      flex-shrink: 0;
-    }
+    .lbar-wrap { background:rgba(0,0,0,.1); height:4px; margin:12px 0; border-radius:2px; overflow:hidden; }
+    .lbar-inner { height:100%; width:35%; border-radius:2px; animation:lbar 1.1s ease-in-out infinite; }
+    .era-98 .lbar-inner { background:#000080; }
+    .era-xp .lbar-inner { background:#1e7cde; }
+    .era-7  .lbar-inner { background:#1a78d4; }
+    .era-10 .lbar-inner { background:#0078d4; }
+    .era-11 .lbar-inner { background:linear-gradient(90deg,#0078d4,#7c5ce7); }
+    @keyframes lbar { 0%{transform:translateX(-100%)} 100%{transform:translateX(400%)} }
 
-    .profile-info h1 {
-      font-size: 16px;
-      font-weight: bold;
-      color: #000080;
-    }
+    .level-row { display:flex; align-items:center; gap:16px; margin-bottom:10px; }
+    .level-meta-era  { font-size:14px; font-weight:600; }
+    .level-meta-desc { font-size:11px; color:#777; margin-top:3px; }
+    .stat-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; text-align:center; }
+    .stat-val  { font-size:22px; font-weight:bold; }
+    .stat-lbl  { font-size:10px; color:#888; }
 
-    .profile-info .subtitle {
-      font-size: 12px;
-      color: #444;
-      margin-top: 2px;
-    }
+    /* 전환 페이드 */
+    #fade { position:fixed; inset:0; background:#000; opacity:0; pointer-events:none; z-index:9999; transition:opacity .35s; }
+    #fade.on { opacity:1; pointer-events:all; }
 
-    .profile-info .bio {
-      font-size: 12px;
-      color: #222;
-      margin-top: 6px;
-      line-height: 1.5;
+    /* ════════════════════════════════════════
+       디자인 선택 카드 (고정 색상 — 테마 무관)
+    ════════════════════════════════════════ */
+    .design-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin-top:4px; }
+    .design-card {
+      border:3px solid transparent; border-radius:6px;
+      cursor:pointer; overflow:hidden; transition:border-color .15s, transform .1s;
+      box-shadow:0 2px 6px rgba(0,0,0,.2);
     }
+    .design-card:hover { transform:translateY(-2px); }
+    .design-card.dc-selected { border-color:#0078d4 !important; }
+    .dc-preview { height:46px; display:flex; align-items:center; justify-content:center; font-size:18px; }
+    .dc-info { padding:5px 6px; background:rgba(0,0,0,.08); }
+    .dc-name  { font-size:10px; font-weight:bold; color:#222; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .dc-range { font-size:9px; color:#666; margin-top:1px; }
 
-    /* 섹션 라벨 */
-    .section-label {
-      font-size: 11px;
-      font-weight: bold;
-      color: #000080;
-      margin-bottom: 4px;
-      border-bottom: 1px solid #808080;
-      padding-bottom: 2px;
+    /* 각 카드 고유 색상 */
+    .dc-98  .dc-preview { background:#c0c0c0; }
+    .dc-xp  .dc-preview { background:linear-gradient(135deg,#245EDC,#1084d0); }
+    .dc-7   .dc-preview { background:linear-gradient(135deg,#1a3a5c,#3a7bd5); }
+    .dc-10  .dc-preview { background:#1a1a1a; }
+    .dc-11  .dc-preview { background:linear-gradient(135deg,#5a7fd4,#7c5ce7); }
+    .dc-98  .dc-info { background:#b0b0b0; }
+    .dc-xp  .dc-info { background:#ECE9D8; }
+    .dc-7   .dc-info { background:rgba(180,215,248,.3); }
+    .dc-10  .dc-info { background:#f3f3f3; }
+    .dc-11  .dc-info { background:rgba(230,225,250,.6); }
+    .dc-selected-badge {
+      display:none; font-size:9px; color:#fff; background:#0078d4;
+      border-radius:3px; padding:1px 4px; margin-top:2px; width:fit-content;
     }
+    .dc-selected .dc-selected-badge { display:block; }
 
-    /* 정보 그리드 */
-    .info-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4px;
+    /* ════════════════════════════════════════
+       최대화 상태
+    ════════════════════════════════════════ */
+    .win-maximized {
+      position:fixed !important;
+      top:0 !important; left:0 !important; right:0 !important; bottom:40px !important;
+      width:auto !important; max-width:none !important;
+      border-radius:0 !important;
+      z-index:50;
+      display:flex !important; flex-direction:column;
     }
+    .win-maximized .window-body { overflow-y:auto; flex:1; min-height:0; }
 
-    .info-row {
-      display: flex;
-      gap: 4px;
-      font-size: 12px;
+    /* ════════════════════════════════════════
+       작업 표시줄
+    ════════════════════════════════════════ */
+    #taskbar {
+      position:fixed; bottom:0; left:0; right:0; height:40px;
+      display:none; align-items:center; gap:4px; padding:0 6px; z-index:200;
     }
+    .era-98 #taskbar { background:#c0c0c0; border-top:2px solid #fff; box-shadow:inset 0 1px 0 #dfdfdf; }
+    .era-xp #taskbar { background:linear-gradient(180deg,#245EDC 0%,#1a5cb5 100%); }
+    .era-7  #taskbar { background:rgba(15,25,45,.88); backdrop-filter:blur(20px); border-top:1px solid rgba(100,160,230,.25); }
+    .era-10 #taskbar { background:#1a1a1a; border-top:1px solid #333; }
+    .era-11 #taskbar { background:rgba(28,28,28,.75); backdrop-filter:blur(30px); border-top:1px solid rgba(255,255,255,.08); }
 
-    .info-key {
-      color: #444;
-      min-width: 40px;
+    /* 시작 버튼 */
+    #tb-start {
+      height:28px; display:flex; align-items:center; gap:4px;
+      padding:0 10px; font-size:12px; font-weight:bold; cursor:pointer; flex-shrink:0;
     }
+    .era-98 #tb-start { background:#c0c0c0; border:2px solid; border-color:#fff #808080 #808080 #fff; color:#000; }
+    .era-xp #tb-start { background:linear-gradient(180deg,#64a832,#3c7a10); border:1px solid #2a5a08; border-radius:0 12px 12px 0; color:#fff; padding:0 14px 0 8px; }
+    .era-7  #tb-start { background:radial-gradient(circle,rgba(80,140,220,.9),rgba(20,70,160,.9)); border:1px solid rgba(100,160,230,.5); border-radius:50%; width:32px; height:32px; padding:0; justify-content:center; }
+    .era-10 #tb-start { background:transparent; color:#fff; border:none; font-size:16px; padding:0 12px; }
+    .era-11 #tb-start { background:transparent; color:#fff; border:none; font-size:16px; padding:0 12px; }
 
-    .info-val {
-      font-weight: bold;
+    /* 작업 표시줄 창 버튼 */
+    #tb-win-btn {
+      height:28px; max-width:200px; display:flex; align-items:center; gap:5px;
+      padding:0 10px; font-size:11px; cursor:pointer; flex:1; min-width:0;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
     }
+    .era-98 #tb-win-btn { background:#c0c0c0; border:2px solid; border-color:#808080 #fff #fff #808080; color:#000; font-weight:bold; }
+    .era-xp #tb-win-btn { background:linear-gradient(180deg,#4a7cc7,#2a5ca7); border:1px solid #1a4c97; border-radius:3px; color:#fff; }
+    .era-7  #tb-win-btn { background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.2); border-radius:4px; color:#fff; backdrop-filter:blur(5px); }
+    .era-10 #tb-win-btn { background:rgba(255,255,255,.1); border-top:2px solid #0078d4; color:#fff; }
+    .era-11 #tb-win-btn { background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.1); border-radius:6px; color:#fff; }
+    #tb-win-btn:hover { filter:brightness(1.15); }
 
-    /* 기술 스택 태그 */
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
+    /* 시계 */
+    #tb-clock {
+      height:28px; display:flex; align-items:center; padding:0 8px;
+      font-size:11px; flex-shrink:0; margin-left:auto;
     }
+    .era-98 #tb-clock { color:#000; border:2px solid; border-color:#808080 #fff #fff #808080; }
+    .era-xp #tb-clock { color:#fff; }
+    .era-7  #tb-clock { color:#ddeeff; }
+    .era-10 #tb-clock { color:#fff; }
+    .era-11 #tb-clock { color:#fff; }
 
-    .skill-tag {
-      background: #c0c0c0;
-      border-top: 1px solid #fff;
-      border-left: 1px solid #fff;
-      border-right: 1px solid #808080;
-      border-bottom: 1px solid #808080;
-      padding: 2px 8px;
-      font-size: 11px;
-      cursor: default;
+    /* ════════════════════════════════════════
+       닫혔을 때 바탕화면 아이콘
+    ════════════════════════════════════════ */
+    #desktop-icon {
+      display:none; flex-direction:column; align-items:center; gap:6px;
+      cursor:pointer; padding:10px 14px; border-radius:6px;
+      user-select:none;
     }
-
-    .skill-tag:active {
-      border-top: 1px solid #808080;
-      border-left: 1px solid #808080;
-      border-right: 1px solid #fff;
-      border-bottom: 1px solid #fff;
-    }
-
-    /* 연락처 버튼 */
-    .contact-buttons {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-
-    .win-btn {
-      background: #c0c0c0;
-      border-top: 2px solid #fff;
-      border-left: 2px solid #fff;
-      border-right: 2px solid #808080;
-      border-bottom: 2px solid #808080;
-      padding: 4px 14px;
-      font-size: 12px;
-      font-family: Arial, sans-serif;
-      cursor: pointer;
-      text-decoration: none;
-      color: #000;
-      display: inline-block;
-    }
-
-    .win-btn:hover {
-      background: #d4d0c8;
-    }
-
-    .win-btn:active {
-      border-top: 2px solid #808080;
-      border-left: 2px solid #808080;
-      border-right: 2px solid #fff;
-      border-bottom: 2px solid #fff;
-      padding: 5px 13px 3px 15px;
-    }
-
-    /* 상태 표시줄 */
-    .status-bar {
-      background: #c0c0c0;
-      border-top: 1px solid #808080;
-      padding: 2px 6px;
-      font-size: 11px;
-      color: #444;
-      display: flex;
-      gap: 8px;
-    }
-
-    .status-panel {
-      border-top: 1px solid #808080;
-      border-left: 1px solid #808080;
-      border-right: 1px solid #fff;
-      border-bottom: 1px solid #fff;
-      padding: 1px 6px;
+    #desktop-icon:hover { background:rgba(255,255,255,.15); }
+    #desktop-icon:focus { outline:1px dotted #fff; }
+    #desktop-icon .di-img { font-size:52px; filter:drop-shadow(0 2px 6px rgba(0,0,0,.5)); }
+    #desktop-icon .di-label {
+      color:#fff; font-size:12px; font-weight:bold;
+      text-shadow:1px 1px 3px rgba(0,0,0,.9);
+      text-align:center;
     }
   </style>
 </head>
-<body>
-  <div class="window">
+<body class="era-98" id="bd">
+<div id="fade"></div>
 
-    <!-- 타이틀 바 -->
-    <div class="title-bar">
-      <div class="title-bar-left">
-        <span class="title-icon">🪟</span>
-        <span>자기소개 - 김준혁.html</span>
-      </div>
-      <div class="title-bar-buttons">
-        <div class="title-btn">_</div>
-        <div class="title-btn">□</div>
-        <div class="title-btn">✕</div>
+<!-- ══════════════════════════════════════
+     메인 프로필 창
+══════════════════════════════════════ -->
+<div class="window main-window" id="main-win-el">
+
+  <!-- 제목바 -->
+  <div class="title-bar" ondblclick="toggleMaximize()">
+    <div class="t-bar-left">
+      <span id="main-icon">🪟</span>
+      <span>자기소개 — <span id="disp-name-title">김준혁</span></span>
+    </div>
+    <div class="t-bar-right">
+      <div class="t-btn min" id="main-min-btn" onclick="minimizeWin()" title="최소화">_</div>
+      <div class="t-btn max" id="main-max-btn" onclick="toggleMaximize()" title="최대화">□</div>
+      <div class="t-btn close" id="main-close-btn" onclick="closeWin()" title="닫기">✕</div>
+    </div>
+  </div>
+
+  <!-- 메뉴바 -->
+  <div class="menu-bar">
+    <span class="menu-item">파일(F)</span>
+    <span class="menu-item">편집(E)</span>
+    <span class="menu-item">보기(V)</span>
+    <span class="menu-item">도움말(H)</span>
+  </div>
+
+  <!-- 툴바 -->
+  <div class="toolbar">
+    <div class="toolbar-left">
+      <span class="ai-badge" id="ai-badge" style="display:none">
+        🤖 AI Lv.<span id="badge-lv">-</span> · <span id="badge-era-name">-</span>
+      </span>
+    </div>
+    <div class="toolbar-right">
+      <button class="btn" onclick="openAnalyzer()">🤖 AI 레벨 분석</button>
+      <button class="btn" onclick="openSettings()">⚙ 설정</button>
+    </div>
+  </div>
+
+  <!-- 본문 -->
+  <div class="window-body">
+
+    <!-- 프로필 -->
+    <div class="panel">
+      <div class="profile-row">
+        <div class="profile-avatar" id="disp-avatar">😊</div>
+        <div class="profile-text">
+          <h1 id="disp-name">김준혁</h1>
+          <div class="profile-subtitle" id="disp-subtitle">웹 개발자 · 서울, 대한민국</div>
+          <div class="profile-bio" id="disp-bio">안녕하세요! 저는 사용자 친화적인 웹 서비스를 만드는 것을 좋아하는 개발자입니다.</div>
+        </div>
       </div>
     </div>
 
-    <!-- 메뉴바 -->
-    <div class="menu-bar">
-      <span class="menu-item">파일(F)</span>
-      <span class="menu-item">편집(E)</span>
-      <span class="menu-item">보기(V)</span>
-      <span class="menu-item">도움말(H)</span>
+    <!-- 기본 정보 -->
+    <div class="panel">
+      <div class="sec-label">기본 정보</div>
+      <div class="info-grid">
+        <div class="info-row"><span class="info-key">나이</span><span class="info-val" id="disp-age">25세</span></div>
+        <div class="info-row"><span class="info-key">학력</span><span class="info-val" id="disp-edu">컴퓨터공학과</span></div>
+        <div class="info-row"><span class="info-key">경력</span><span class="info-val" id="disp-exp">3년</span></div>
+        <div class="info-row"><span class="info-key">거주지</span><span class="info-val" id="disp-loc">서울특별시</span></div>
+      </div>
     </div>
 
-    <!-- 본문 -->
-    <div class="window-body">
-
-      <!-- 프로필 -->
-      <div class="panel profile-panel">
-        <div class="avatar-box">😊</div>
-        <div class="profile-info">
-          <h1>김준혁</h1>
-          <div class="subtitle">웹 개발자 · 서울, 대한민국</div>
-          <div class="bio">
-            안녕하세요! 저는 사용자 친화적인 웹 서비스를 만드는 것을<br>
-            좋아하는 개발자입니다. 새로운 기술 배우는 것을 즐깁니다.
-          </div>
-        </div>
-      </div>
-
-      <!-- 기본 정보 -->
-      <div class="panel">
-        <div class="section-label">기본 정보</div>
-        <div class="info-grid">
-          <div class="info-row">
-            <span class="info-key">나이</span>
-            <span class="info-val">25세</span>
-          </div>
-          <div class="info-row">
-            <span class="info-key">학력</span>
-            <span class="info-val">컴퓨터공학과</span>
-          </div>
-          <div class="info-row">
-            <span class="info-key">경력</span>
-            <span class="info-val">3년</span>
-          </div>
-          <div class="info-row">
-            <span class="info-key">거주지</span>
-            <span class="info-val">서울특별시</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 기술 스택 -->
-      <div class="panel">
-        <div class="section-label">기술 스택</div>
-        <div class="skills">
-          <span class="skill-tag">HTML / CSS</span>
-          <span class="skill-tag">JavaScript</span>
-          <span class="skill-tag">React</span>
-          <span class="skill-tag">Node.js</span>
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">Git</span>
-        </div>
-      </div>
-
-      <!-- 취미 -->
-      <div class="panel">
-        <div class="section-label">취미 &amp; 관심사</div>
-        <div style="font-size:12px;">독서, 코딩 사이드 프로젝트, 등산, 커피 탐방</div>
-      </div>
-
-      <!-- 연락처 -->
-      <div class="panel">
-        <div class="section-label">연락처</div>
-        <div class="contact-buttons">
-          <a class="win-btn" href="mailto:example@email.com">✉ 이메일</a>
-          <a class="win-btn" href="#">💼 GitHub</a>
-          <a class="win-btn" href="#">🔗 LinkedIn</a>
-        </div>
-      </div>
-
+    <!-- 기술 스택 -->
+    <div class="panel">
+      <div class="sec-label">기술 스택</div>
+      <div class="skills-row" id="disp-skills"></div>
     </div>
 
-    <!-- 상태 표시줄 -->
-    <div class="status-bar">
-      <span class="status-panel">준비</span>
-      <span class="status-panel">마지막 수정: 2026-05-12</span>
+    <!-- 취미 -->
+    <div class="panel">
+      <div class="sec-label">취미 &amp; 관심사</div>
+      <div style="font-size:12px;" id="disp-hobbies">독서, 코딩 사이드 프로젝트, 등산, 커피 탐방</div>
+    </div>
+
+    <!-- 연락처 -->
+    <div class="panel">
+      <div class="sec-label">연락처</div>
+      <div class="contact-row">
+        <a class="contact-btn" id="disp-email" href="#">✉ 이메일</a>
+        <a class="contact-btn" id="disp-github" href="#">💼 GitHub</a>
+        <a class="contact-btn" id="disp-linkedin" href="#">🔗 LinkedIn</a>
+      </div>
     </div>
 
   </div>
+
+  <!-- 상태바 -->
+  <div class="status-bar">
+    <span class="s-panel" id="main-status">준비</span>
+    <span class="s-panel" id="main-date">2026-05-12</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     작업 표시줄
+══════════════════════════════════════ -->
+<div id="taskbar">
+  <div id="tb-start" onclick="restoreWin()">
+    <span id="tb-start-icon">🪟</span>
+    <span id="tb-start-label">시작</span>
+  </div>
+  <div id="tb-win-btn" onclick="restoreWin()">
+    <span>🪟</span>
+    <span id="tb-win-label">자기소개 — 김준혁</span>
+  </div>
+  <div id="tb-clock">00:00</div>
+</div>
+
+<!-- ══════════════════════════════════════
+     바탕화면 아이콘 (창 닫혔을 때)
+══════════════════════════════════════ -->
+<div id="desktop-icon" ondblclick="restoreWin()" tabindex="0"
+     onkeydown="if(event.key==='Enter')restoreWin()">
+  <div class="di-img">🪟</div>
+  <div class="di-label">자기소개.html<br><span style="font-size:10px;font-weight:normal;opacity:.8">(더블클릭으로 열기)</span></div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     설정 팝업
+══════════════════════════════════════ -->
+<div class="overlay" id="settings-overlay" style="display:none">
+  <div class="window settings-win">
+    <div class="title-bar">
+      <div class="t-bar-left"><span>⚙</span><span>설정 — 정보 수정</span></div>
+      <div class="t-bar-right"><div class="t-btn close" onclick="closeSettings()">✕</div></div>
+    </div>
+    <div class="tab-bar">
+      <div class="tab active" onclick="switchTab('profile')">프로필 정보</div>
+      <div class="tab" onclick="switchTab('account')">계정 설정</div>
+      <div class="tab" id="tab-design-btn" onclick="switchTab('design')" style="display:none">🎨 디자인 선택</div>
+    </div>
+
+    <!-- 탭1: 프로필 -->
+    <div class="tab-pane active" id="tab-profile">
+      <div class="form-row"><label>이름</label><input class="inp" id="f-name" type="text"/></div>
+      <div class="form-row"><label>직함/부제</label><input class="inp" id="f-subtitle" type="text"/></div>
+      <div class="form-row"><label>자기소개</label><textarea class="inp" id="f-bio"></textarea></div>
+      <div class="form-divider"></div>
+      <div class="form-row"><label>나이</label><input class="inp" id="f-age" type="text"/></div>
+      <div class="form-row"><label>학력</label><input class="inp" id="f-edu" type="text"/></div>
+      <div class="form-row"><label>경력</label><input class="inp" id="f-exp" type="text"/></div>
+      <div class="form-row"><label>거주지</label><input class="inp" id="f-loc" type="text"/></div>
+      <div class="form-divider"></div>
+      <div class="form-row"><label>기술 스택</label><input class="inp" id="f-skills" type="text" placeholder="쉼표로 구분"/></div>
+      <div class="form-row"><label>취미</label><input class="inp" id="f-hobbies" type="text"/></div>
+      <div class="form-divider"></div>
+      <div class="form-row"><label>이메일</label><input class="inp" id="f-email" type="text"/></div>
+      <div class="form-row"><label>GitHub URL</label><input class="inp" id="f-github" type="text"/></div>
+      <div class="form-row"><label>LinkedIn URL</label><input class="inp" id="f-linkedin" type="text"/></div>
+    </div>
+
+    <!-- 탭2: 계정 -->
+    <div class="tab-pane" id="tab-account">
+      <p style="font-size:11px;color:#666;margin-bottom:10px;">비밀번호를 설정하면 이후 저장 시 확인이 필요합니다.</p>
+      <div class="form-row"><label>아이디</label><input class="inp" id="f-id" type="text"/></div>
+      <div class="form-row"><label>비밀번호</label><input class="inp" id="f-pw" type="password" placeholder="변경 시에만 입력"/></div>
+      <div class="form-row"><label>비밀번호 힌트</label><input class="inp" id="f-hint" type="text" placeholder="예: 내 첫 학교 이름"/></div>
+    </div>
+
+    <!-- 탭3: 디자인 선택 (galmygy 전용) -->
+    <div class="tab-pane" id="tab-design">
+      <p style="font-size:11px;color:#666;margin-bottom:10px;">
+        Windows 디자인을 직접 선택합니다. 클릭 시 즉시 미리보기가 적용되며, 저장하면 고정됩니다.
+      </p>
+      <div class="design-grid">
+        <div class="design-card dc-98" data-era="era-98" onclick="previewDesign('era-98')">
+          <div class="dc-preview">🖥</div>
+          <div class="dc-info">
+            <div class="dc-name">Windows 98</div>
+            <div class="dc-range">Lv 1 ~ 20</div>
+            <div class="dc-selected-badge">✔ 적용 중</div>
+          </div>
+        </div>
+        <div class="design-card dc-xp" data-era="era-xp" onclick="previewDesign('era-xp')">
+          <div class="dc-preview">🌅</div>
+          <div class="dc-info">
+            <div class="dc-name">Windows XP</div>
+            <div class="dc-range">Lv 21 ~ 40</div>
+            <div class="dc-selected-badge">✔ 적용 중</div>
+          </div>
+        </div>
+        <div class="design-card dc-7" data-era="era-7" onclick="previewDesign('era-7')">
+          <div class="dc-preview">💎</div>
+          <div class="dc-info">
+            <div class="dc-name">Windows 7</div>
+            <div class="dc-range">Lv 41 ~ 60</div>
+            <div class="dc-selected-badge">✔ 적용 중</div>
+          </div>
+        </div>
+        <div class="design-card dc-10" data-era="era-10" onclick="previewDesign('era-10')">
+          <div class="dc-preview">⬛</div>
+          <div class="dc-info">
+            <div class="dc-name">Windows 10</div>
+            <div class="dc-range">Lv 61 ~ 80</div>
+            <div class="dc-selected-badge">✔ 적용 중</div>
+          </div>
+        </div>
+        <div class="design-card dc-11" data-era="era-11" onclick="previewDesign('era-11')">
+          <div class="dc-preview">🌌</div>
+          <div class="dc-info">
+            <div class="dc-name">Windows 11</div>
+            <div class="dc-range">Lv 81 ~ 100</div>
+            <div class="dc-selected-badge">✔ 적용 중</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup-footer">
+      <button class="btn" onclick="requestSave()">저장</button>
+      <button class="btn" onclick="closeSettings()">취소</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     비밀번호 확인 팝업
+══════════════════════════════════════ -->
+<div class="overlay" id="pw-overlay" style="display:none">
+  <div class="window" style="width:320px">
+    <div class="title-bar">
+      <div class="t-bar-left"><span>🔒</span><span>비밀번호 확인</span></div>
+      <div class="t-bar-right"><div class="t-btn close" onclick="closePw()">✕</div></div>
+    </div>
+    <div style="padding:16px">
+      <p style="font-size:12px;margin-bottom:10px;">변경 사항을 저장하려면 비밀번호를 입력하세요.</p>
+      <div id="pw-hint-box" style="display:none;font-size:11px;color:#666;padding:4px 6px;margin-bottom:8px;"></div>
+      <div class="form-row"><label style="width:70px;text-align:right;">비밀번호</label><input class="inp" id="pw-inp" type="password" onkeydown="if(event.key==='Enter')confirmSave()"/></div>
+      <div class="err-msg" id="pw-err"></div>
+    </div>
+    <div class="popup-footer">
+      <button class="btn" onclick="confirmSave()">확인</button>
+      <button class="btn" onclick="closePw()">취소</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     AI 레벨 분석 팝업
+══════════════════════════════════════ -->
+<div class="overlay" id="ai-overlay" style="display:none">
+  <div class="window ai-win">
+    <div class="title-bar">
+      <div class="t-bar-left"><span id="ai-win-icon">🤖</span><span id="ai-win-title">GitHub AI 레벨 분석기</span></div>
+      <div class="t-bar-right"><div class="t-btn close" onclick="closeAnalyzer()">✕</div></div>
+    </div>
+    <div class="window-body" style="gap:0;padding:0">
+
+      <!-- 입력 화면 -->
+      <div class="ai-screen active" id="ai-input">
+        <div style="padding:12px;display:flex;flex-direction:column;gap:8px">
+          <div class="panel">
+            <div class="sec-label">GitHub 사용자명 입력</div>
+            <p style="font-size:12px;color:#666;margin-bottom:10px;line-height:1.6">
+              GitHub 활동을 분석해 <strong>AI 활용 레벨 (1~100)</strong>을 측정합니다.<br>
+              레벨에 따라 프로필 페이지 디자인이 <strong>Windows 98 → 11</strong>로 변경됩니다.
+            </p>
+            <div style="display:flex;gap:6px">
+              <input class="inp" id="ai-uname" type="text" placeholder="예: torvalds" style="flex:1"
+                     onkeydown="if(event.key==='Enter')runAnalysis()"/>
+              <button class="btn" onclick="runAnalysis()">분석 시작</button>
+            </div>
+            <div class="err-msg" id="ai-err"></div>
+          </div>
+          <div class="panel">
+            <div class="sec-label">레벨 기준</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;font-size:12px">
+              <div>🖥 Lv &nbsp;1~20 : Windows 98</div>
+              <div>🌅 Lv 21~40 : Windows XP</div>
+              <div>💎 Lv 41~60 : Windows 7 Aero</div>
+              <div>⬛ Lv 61~80 : Windows 10</div>
+              <div>🌌 Lv 81~100: Windows 11</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 로딩 화면 -->
+      <div class="ai-screen" id="ai-loading">
+        <div style="padding:12px">
+          <div class="panel">
+            <div class="sec-label">GitHub 데이터 분석 중</div>
+            <div class="lbar-wrap"><div class="lbar-inner"></div></div>
+            <div id="ai-load-msg" style="font-size:11px;color:#666">사용자 정보를 가져오는 중...</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 결과 화면 -->
+      <div class="ai-screen" id="ai-result">
+        <div style="padding:12px;display:flex;flex-direction:column;gap:8px">
+          <!-- 레벨 -->
+          <div class="panel">
+            <div class="sec-label">AI 활용 레벨 분석 결과</div>
+            <div class="level-row">
+              <div class="level-num" id="r-lnum">-</div>
+              <div>
+                <div class="level-meta-era" id="r-lera">-</div>
+                <div class="level-meta-desc" id="r-ldesc">-</div>
+              </div>
+            </div>
+            <div class="lvbar-bg"><div class="lvbar-fill" id="r-lbar" style="width:0%"></div></div>
+            <div style="font-size:10px;color:#999;margin-top:4px" id="r-detail"></div>
+          </div>
+          <!-- GitHub 프로필 -->
+          <div class="panel">
+            <div class="sec-label">GitHub 프로필</div>
+            <div class="profile-row">
+              <img id="r-avatar" src="" alt="" width="56" height="56" class="avatar" style="border-radius:4px;flex-shrink:0"/>
+              <div>
+                <div style="font-weight:bold;font-size:14px" id="r-name">-</div>
+                <div style="font-size:11px;color:#888" id="r-login"></div>
+                <div style="font-size:11px;color:#666;margin-top:3px" id="r-bio-gh"></div>
+              </div>
+            </div>
+          </div>
+          <!-- 통계 -->
+          <div class="panel">
+            <div class="sec-label">통계</div>
+            <div class="stat-grid">
+              <div><div class="stat-val" id="r-repos">-</div><div class="stat-lbl">저장소</div></div>
+              <div><div class="stat-val" id="r-flw">-</div><div class="stat-lbl">팔로워</div></div>
+              <div><div class="stat-val" id="r-stars">-</div><div class="stat-lbl">총 스타</div></div>
+            </div>
+          </div>
+          <!-- AI 저장소 -->
+          <div class="panel" id="r-ai-panel" style="display:none">
+            <div class="sec-label">AI 관련 저장소 <span id="r-ai-cnt" style="font-weight:normal;color:#888"></span></div>
+            <div id="r-ai-list"></div>
+          </div>
+        </div>
+        <div class="popup-footer">
+          <button class="btn" onclick="applyAndClose()">✔ 이 디자인 적용 &amp; 닫기</button>
+          <button class="btn" onclick="showAiScreen('ai-input')">↩ 다시 분석</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<script>
+/* ════════════════════════════════════════
+   데이터 / 초기화
+════════════════════════════════════════ */
+const DP = {
+  name:'김준혁', subtitle:'웹 개발자 · 서울, 대한민국',
+  bio:'안녕하세요! 저는 사용자 친화적인 웹 서비스를 만드는 것을 좋아하는 개발자입니다.',
+  age:'25세', edu:'컴퓨터공학과', exp:'3년', loc:'서울특별시',
+  skills:'HTML / CSS,JavaScript,React,Node.js,Python,Git',
+  hobbies:'독서, 코딩 사이드 프로젝트, 등산, 커피 탐방',
+  email:'example@email.com', github:'#', linkedin:'#'
+};
+const DA = { id:'', password:'', hint:'' };
+const DL = { level:null, era:null, username:'' };
+
+let P = JSON.parse(localStorage.getItem('profile98'))  || {...DP};
+let A = JSON.parse(localStorage.getItem('account98'))  || {...DA};
+let L = JSON.parse(localStorage.getItem('ai-level98')) || {...DL};
+
+/* ════════════════════════════════════════
+   에라 정보
+════════════════════════════════════════ */
+const ERAS = {
+  'era-98':{ name:'Windows 98',       icon:'🖥',  lv:[1,20],  desc:'AI 입문 단계 — 기초를 쌓는 중입니다' },
+  'era-xp':{ name:'Windows XP',       icon:'🌅',  lv:[21,40], desc:'AI 학습 단계 — 다양한 도구를 탐색 중입니다' },
+  'era-7' :{ name:'Windows 7 (Aero)', icon:'💎',  lv:[41,60], desc:'AI 활용 단계 — 실전 프로젝트에 적용 중입니다' },
+  'era-10':{ name:'Windows 10',        icon:'⬛', lv:[61,80], desc:'AI 전문가 단계 — 고급 모델을 다루고 있습니다' },
+  'era-11':{ name:'Windows 11',        icon:'🌌', lv:[81,100],desc:'AI 마스터 단계 — 최첨단 AI를 선도합니다' },
+};
+function eraByLevel(lv) {
+  for(const [k,v] of Object.entries(ERAS)) if(lv>=v.lv[0]&&lv<=v.lv[1]) return {key:k,...v};
+  return {key:'era-98',...ERAS['era-98']};
+}
+
+/* ════════════════════════════════════════
+   프로필 렌더링
+════════════════════════════════════════ */
+function renderProfile() {
+  document.getElementById('disp-name-title').textContent = P.name;
+  document.getElementById('disp-name').textContent       = P.name;
+  document.getElementById('disp-subtitle').textContent   = P.subtitle;
+  document.getElementById('disp-bio').textContent        = P.bio;
+  document.getElementById('disp-age').textContent        = P.age;
+  document.getElementById('disp-edu').textContent        = P.edu;
+  document.getElementById('disp-exp').textContent        = P.exp;
+  document.getElementById('disp-loc').textContent        = P.loc;
+  document.getElementById('disp-hobbies').textContent    = P.hobbies;
+
+  const emailEl = document.getElementById('disp-email');
+  emailEl.href = 'mailto:' + P.email;
+
+  document.getElementById('disp-github').href   = P.github;
+  document.getElementById('disp-linkedin').href = P.linkedin;
+
+  const skillsEl = document.getElementById('disp-skills');
+  skillsEl.innerHTML = '';
+  P.skills.split(',').map(s=>s.trim()).filter(Boolean).forEach(s=>{
+    const span = document.createElement('span');
+    span.className='skill-chip'; span.textContent=s;
+    skillsEl.appendChild(span);
+  });
+
+  document.getElementById('main-date').textContent = new Date().toISOString().slice(0,10);
+}
+
+/* ════════════════════════════════════════
+   테마 적용
+════════════════════════════════════════ */
+function applyTheme(eraKey, animate=true) {
+  const e = ERAS[eraKey];
+  if (!e) return;
+  const fade = document.getElementById('fade');
+  const doApply = () => {
+    document.getElementById('bd').className = eraKey;
+    document.getElementById('main-icon').textContent = e.icon;
+    // 타이틀 버튼 텍스트 (Win11은 macOS 점)
+    ['min','max'].forEach(k=>{
+      document.querySelectorAll('.t-btn.'+k).forEach(b=>{ b.textContent = eraKey==='era-11' ? '' : (k==='min'?'_':'□'); });
+    });
+  };
+  if (animate) {
+    fade.classList.add('on');
+    setTimeout(()=>{ doApply(); fade.classList.remove('on'); }, 350);
+  } else {
+    doApply();
+  }
+}
+
+function renderBadge() {
+  const badge = document.getElementById('ai-badge');
+  if (L.era) {
+    const e = ERAS[L.era];
+    document.getElementById('badge-lv').textContent       = L.level != null ? L.level : '수동';
+    document.getElementById('badge-era-name').textContent = e ? e.name : '';
+    badge.style.display = '';
+  } else {
+    badge.style.display = 'none';
+  }
+}
+
+/* ════════════════════════════════════════
+   설정 팝업
+════════════════════════════════════════ */
+function openSettings() {
+  document.getElementById('f-name').value    = P.name;
+  document.getElementById('f-subtitle').value= P.subtitle;
+  document.getElementById('f-bio').value     = P.bio;
+  document.getElementById('f-age').value     = P.age;
+  document.getElementById('f-edu').value     = P.edu;
+  document.getElementById('f-exp').value     = P.exp;
+  document.getElementById('f-loc').value     = P.loc;
+  document.getElementById('f-skills').value  = P.skills;
+  document.getElementById('f-hobbies').value = P.hobbies;
+  document.getElementById('f-email').value   = P.email;
+  document.getElementById('f-github').value  = P.github;
+  document.getElementById('f-linkedin').value= P.linkedin;
+  document.getElementById('f-id').value      = A.id;
+  document.getElementById('f-pw').value      = '';
+  document.getElementById('f-hint').value    = A.hint;
+
+  // galmygy 전용 디자인 탭 표시 여부
+  const isAdmin = A.id === 'galmygy';
+  document.getElementById('tab-design-btn').style.display = isAdmin ? '' : 'none';
+
+  // 현재 테마를 기억 (취소 시 복원용)
+  window._prevEra = document.getElementById('bd').className;
+  window._pendingDesignEra = null;
+
+  // 디자인 카드 선택 상태 초기화
+  updateDesignCards(L.era || 'era-98');
+
+  switchTab('profile');
+  document.getElementById('settings-overlay').style.display = 'flex';
+}
+
+function closeSettings() {
+  // 저장하지 않고 닫으면 미리보기 테마 복원
+  if (window._pendingDesignEra && window._pendingDesignEra !== window._prevEra) {
+    document.getElementById('bd').className = window._prevEra;
+  }
+  window._pendingDesignEra = null;
+  document.getElementById('settings-overlay').style.display = 'none';
+}
+
+function switchTab(name) {
+  const tabs  = ['profile','account','design'];
+  document.querySelectorAll('.tab-bar .tab').forEach((t,i)=>{
+    if (tabs[i]) t.classList.toggle('active', tabs[i]===name);
+  });
+  tabs.forEach(id=>{
+    const el = document.getElementById('tab-'+id);
+    if (el) el.classList.toggle('active', id===name);
+  });
+}
+
+function requestSave() {
+  if (A.password) {
+    document.getElementById('pw-inp').value='';
+    document.getElementById('pw-err').textContent='';
+    const hb = document.getElementById('pw-hint-box');
+    if (A.hint) { hb.textContent='힌트: '+A.hint; hb.style.display=''; }
+    else hb.style.display='none';
+    document.getElementById('pw-overlay').style.display='flex';
+    setTimeout(()=>document.getElementById('pw-inp').focus(),50);
+  } else { doSave(); }
+}
+function closePw() { document.getElementById('pw-overlay').style.display='none'; }
+function confirmSave() {
+  if (document.getElementById('pw-inp').value===A.password) { closePw(); doSave(); }
+  else { document.getElementById('pw-err').textContent='비밀번호가 올바르지 않습니다.'; document.getElementById('pw-inp').select(); }
+}
+function doSave() {
+  P.name    = document.getElementById('f-name').value.trim();
+  P.subtitle= document.getElementById('f-subtitle').value.trim();
+  P.bio     = document.getElementById('f-bio').value.trim();
+  P.age     = document.getElementById('f-age').value.trim();
+  P.edu     = document.getElementById('f-edu').value.trim();
+  P.exp     = document.getElementById('f-exp').value.trim();
+  P.loc     = document.getElementById('f-loc').value.trim();
+  P.skills  = document.getElementById('f-skills').value.trim();
+  P.hobbies = document.getElementById('f-hobbies').value.trim();
+  P.email   = document.getElementById('f-email').value.trim();
+  P.github  = document.getElementById('f-github').value.trim();
+  P.linkedin= document.getElementById('f-linkedin').value.trim();
+  A.id   = document.getElementById('f-id').value.trim();
+  A.hint = document.getElementById('f-hint').value.trim();
+  const np = document.getElementById('f-pw').value;
+  if (np) A.password = np;
+  localStorage.setItem('profile98', JSON.stringify(P));
+  localStorage.setItem('account98', JSON.stringify(A));
+
+  // 수동 디자인 선택이 있으면 저장
+  if (window._pendingDesignEra) {
+    L.era   = window._pendingDesignEra;
+    L.level = null; // 수동 선택 시 AI 레벨 숫자는 비움
+    localStorage.setItem('ai-level98', JSON.stringify(L));
+    applyTheme(window._pendingDesignEra, false);
+    renderBadge();
+    window._pendingDesignEra = null;
+  }
+
+  renderProfile();
+  // 아이디 바뀌면 디자인 탭 표시 여부 갱신
+  document.getElementById('tab-design-btn').style.display = A.id === 'galmygy' ? '' : 'none';
+
+  document.getElementById('settings-overlay').style.display = 'none';
+  document.getElementById('main-status').textContent = '저장 완료';
+  setTimeout(()=>document.getElementById('main-status').textContent='준비', 2000);
+}
+
+/* ────────────────────────────────────────
+   디자인 카드 선택 / 미리보기
+──────────────────────────────────────── */
+function updateDesignCards(eraKey) {
+  document.querySelectorAll('.design-card').forEach(card=>{
+    card.classList.toggle('dc-selected', card.dataset.era === eraKey);
+  });
+}
+
+function previewDesign(eraKey) {
+  window._pendingDesignEra = eraKey;
+  updateDesignCards(eraKey);
+  // 팝업 뒤 배경 즉시 적용 (미리보기)
+  document.getElementById('bd').className = eraKey;
+}
+
+/* ════════════════════════════════════════
+   AI 분석기
+════════════════════════════════════════ */
+const AI_KW = [
+  'ai','ml','llm','gpt','nlp','bert','neural','deep-learning','machine-learning',
+  'tensorflow','pytorch','keras','scikit','huggingface','langchain','openai',
+  'anthropic','diffusion','transformer','reinforcement','computer-vision',
+  'data-science','artificial-intelligence','chatbot','stable-diffusion','rag',
+  'embedding','vector','semantic','claude','gemini','llama','fine-tuning',
+  'prompt-engineering','yolo','deeplearning','neuralnetwork','classification',
+  'object-detection','generative','automl','mlops','text-generation'
+];
+function hasAI(t) {
+  if (!t) return false;
+  const s = t.toLowerCase().replace(/[\s_]/g,'-');
+  return AI_KW.some(k=>s.includes(k));
+}
+function calcLevel(user, repos) {
+  let sc = 0;
+  const aiRepos = [], langMap = {};
+  if (hasAI(user.bio)) sc+=15;
+  if (hasAI(user.name)) sc+=5;
+  if (hasAI(user.company)) sc+=5;
+  for (const r of repos) {
+    const topics = Array.isArray(r.topics)?r.topics:[];
+    const isAI = hasAI(r.name)||hasAI(r.description)||topics.some(hasAI);
+    if (isAI) {
+      aiRepos.push(r);
+      sc+=8;
+      sc+=Math.min((r.stargazers_count||0)*.5,10);
+      sc+=Math.min((r.forks_count||0)*.3,6);
+      const days=(Date.now()-new Date(r.updated_at))/86400000;
+      if(days<90)sc+=4; if(days<30)sc+=4; if(days<7)sc+=4;
+    }
+    const lang=r.language;
+    if(lang){
+      langMap[lang]=(langMap[lang]||0)+1;
+      if(lang==='Jupyter Notebook')sc+=isAI?6:4;
+      else if(lang==='Python')sc+=isAI?4:1.5;
+    }
+  }
+  sc+=Math.min(user.followers*.02,5);
+  sc+=Math.min(user.public_repos*.05,5);
+  return {
+    level: Math.max(1,Math.min(100,Math.round((Math.min(sc,220)/220)*100))),
+    aiRepos, langMap, raw: Math.round(sc)
+  };
+}
+function fmt(n){ return n>=1000?(n/1000).toFixed(1)+'k':n; }
+
+function openAnalyzer() {
+  showAiScreen('ai-input');
+  document.getElementById('ai-overlay').style.display='flex';
+  document.getElementById('ai-uname').value='';
+  document.getElementById('ai-err').textContent='';
+  document.getElementById('ai-win-icon').textContent='🤖';
+  document.getElementById('ai-win-title').textContent='GitHub AI 레벨 분석기';
+}
+function closeAnalyzer() { document.getElementById('ai-overlay').style.display='none'; }
+
+function showAiScreen(id) {
+  ['ai-input','ai-loading','ai-result'].forEach(s=>{
+    document.getElementById(s).classList.toggle('active', s===id);
+  });
+}
+
+async function runAnalysis() {
+  const u = document.getElementById('ai-uname').value.trim();
+  if (!u) { document.getElementById('ai-err').textContent='사용자명을 입력해주세요.'; return; }
+  document.getElementById('ai-err').textContent='';
+  showAiScreen('ai-loading');
+
+  const H={ Accept:'application/vnd.github.v3+json' };
+  const setMsg = t => document.getElementById('ai-load-msg').textContent=t;
+
+  try {
+    setMsg('사용자 정보를 가져오는 중...');
+    const uRes = await fetch(`https://api.github.com/users/${u}`,{headers:H});
+    if(!uRes.ok) throw new Error(uRes.status===404?'사용자를 찾을 수 없습니다.':`API 오류 (${uRes.status})`);
+    const user = await uRes.json();
+
+    setMsg('저장소를 분석하는 중...');
+    const rRes = await fetch(`https://api.github.com/users/${u}/repos?per_page=100&sort=updated`,{headers:H});
+    const repos = await rRes.json();
+    const repoList = Array.isArray(repos)?repos:[];
+
+    setMsg('AI 활동 점수를 계산하는 중...');
+    await new Promise(r=>setTimeout(r,500));
+
+    const {level,aiRepos,langMap,raw} = calcLevel(user,repoList);
+    const e = eraByLevel(level);
+
+    // 임시 저장 (applyAndClose 때 확정)
+    window._pendingEra   = e.key;
+    window._pendingLevel = level;
+
+    // 결과 렌더링
+    document.getElementById('ai-win-icon').textContent  = e.icon;
+    document.getElementById('ai-win-title').textContent = `${u} — AI Lv.${level}`;
+    document.getElementById('r-lnum').textContent  = level;
+    document.getElementById('r-lera').textContent  = e.name;
+    document.getElementById('r-ldesc').textContent = e.desc;
+    document.getElementById('r-detail').textContent =
+      `원점수: ${raw} · AI 관련 저장소: ${aiRepos.length}개 · GitHub 사용자: ${u}`;
+
+    document.getElementById('r-avatar').src      = user.avatar_url;
+    document.getElementById('r-name').textContent   = user.name||user.login;
+    document.getElementById('r-login').textContent  = '@'+user.login;
+    document.getElementById('r-bio-gh').textContent = user.bio||'';
+
+    const total = repoList.reduce((s,r)=>s+(r.stargazers_count||0),0);
+    document.getElementById('r-repos').textContent = fmt(user.public_repos||0);
+    document.getElementById('r-flw').textContent   = fmt(user.followers||0);
+    document.getElementById('r-stars').textContent = fmt(total);
+
+    const aiPanel = document.getElementById('r-ai-panel');
+    const aiList  = document.getElementById('r-ai-list');
+    aiList.innerHTML='';
+    if(aiRepos.length){
+      aiPanel.style.display='';
+      document.getElementById('r-ai-cnt').textContent=`(${aiRepos.length}개)`;
+      aiRepos.slice(0,5).forEach(r=>{
+        const d=document.createElement('div'); d.className='repo-item';
+        d.innerHTML=`<span class="repo-name">${r.name}</span><span class="repo-stars">⭐ ${r.stargazers_count}</span>`;
+        aiList.appendChild(d);
+      });
+    } else { aiPanel.style.display='none'; }
+
+    // 팝업 자체도 미리 테마 반영
+    document.getElementById('bd').className = e.key;
+    // 레벨바 애니메이션
+    showAiScreen('ai-result');
+    setTimeout(()=>{ document.getElementById('r-lbar').style.width=level+'%'; },200);
+
+  } catch(err) {
+    showAiScreen('ai-input');
+    document.getElementById('ai-err').textContent = err.message;
+  }
+}
+
+function applyAndClose() {
+  const eKey = window._pendingEra;
+  const lv   = window._pendingLevel;
+  if (!eKey) { closeAnalyzer(); return; }
+
+  L.level    = lv;
+  L.era      = eKey;
+  localStorage.setItem('ai-level98', JSON.stringify(L));
+
+  closeAnalyzer();
+  applyTheme(eKey, true);
+  renderBadge();
+  document.getElementById('main-status').textContent = `AI Lv.${lv} (${ERAS[eKey].name}) 적용됨`;
+}
+
+/* ════════════════════════════════════════
+   창 제어 (최소화 / 최대화 / 닫기)
+════════════════════════════════════════ */
+let winState = 'normal'; // 'normal' | 'minimized' | 'maximized' | 'closed'
+
+function minimizeWin() {
+  document.getElementById('main-win-el').style.display = 'none';
+  const tb = document.getElementById('taskbar');
+  tb.style.display = 'flex';
+  document.getElementById('desktop-icon').style.display = 'none';
+  document.getElementById('tb-win-label').textContent =
+    '자기소개 — ' + (P.name || '김준혁');
+  winState = 'minimized';
+  tickClock();
+}
+
+function toggleMaximize() {
+  const win = document.getElementById('main-win-el');
+  const btn = document.getElementById('main-max-btn');
+  const era = document.getElementById('bd').className;
+
+  if (winState === 'maximized') {
+    win.classList.remove('win-maximized');
+    btn.textContent = '□';
+    btn.title = '최대화';
+    // Win11 t-btn은 텍스트 없이 색상으로 구분
+    if (era === 'era-11') btn.textContent = '';
+    winState = 'normal';
+  } else {
+    win.classList.add('win-maximized');
+    btn.textContent = '❐';
+    btn.title = '이전 크기로';
+    if (era === 'era-11') btn.textContent = '';
+    winState = 'maximized';
+  }
+}
+
+function closeWin() {
+  document.getElementById('main-win-el').style.display = 'none';
+  document.getElementById('taskbar').style.display = 'none';
+  document.getElementById('desktop-icon').style.display = 'flex';
+  winState = 'closed';
+}
+
+function restoreWin() {
+  const win = document.getElementById('main-win-el');
+  win.style.display = '';
+  win.classList.remove('win-maximized');
+  document.getElementById('main-max-btn').textContent = '□';
+  document.getElementById('taskbar').style.display = 'none';
+  document.getElementById('desktop-icon').style.display = 'none';
+  winState = 'normal';
+}
+
+/* 작업 표시줄 시계 */
+function tickClock() {
+  const el = document.getElementById('tb-clock');
+  if (!el) return;
+  const now = new Date();
+  el.textContent = now.toLocaleTimeString('ko-KR', { hour:'2-digit', minute:'2-digit' });
+}
+setInterval(tickClock, 1000);
+tickClock();
+
+/* 에라 변경 시 시작 버튼 모양 갱신 */
+const _origApplyTheme = applyTheme;
+function applyTheme(eraKey, animate=true) {
+  _origApplyTheme(eraKey, animate);
+  const e = ERAS[eraKey];
+  // 작업 표시줄 시작 버튼 아이콘
+  const icons = { 'era-98':'🖥','era-xp':'🌅','era-7':'💎','era-10':'⊞','era-11':'⊞' };
+  const labels = { 'era-98':'시작','era-xp':'시작','era-7':'','era-10':'','era-11':'' };
+  const si = document.getElementById('tb-start-icon');
+  const sl = document.getElementById('tb-start-label');
+  if (si) si.textContent = icons[eraKey] || '🪟';
+  if (sl) sl.textContent = labels[eraKey] ?? '시작';
+}
+
+/* ════════════════════════════════════════
+   초기 실행
+════════════════════════════════════════ */
+(function init(){
+  renderProfile();
+  if (L.era) {
+    applyTheme(L.era, false);
+    renderBadge();
+    if (L.level) {
+      document.getElementById('main-status').textContent =
+        `AI Lv.${L.level} (${ERAS[L.era].name}) 적용됨`;
+    }
+  }
+})();
+</script>
 </body>
 </html>
