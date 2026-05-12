@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>자기소개 - 김준혁</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #008080;
+      font-family: 'Arial', sans-serif;
+      font-size: 13px;
+      color: #000;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    /* 윈도우 창 */
+    .window {
+      background: #c0c0c0;
+      border-top: 2px solid #fff;
+      border-left: 2px solid #fff;
+      border-right: 2px solid #808080;
+      border-bottom: 2px solid #808080;
+      width: 580px;
+      box-shadow: 2px 2px 0 #000;
+    }
+
+    /* 타이틀 바 */
+    .title-bar {
+      background: linear-gradient(to right, #000080, #1084d0);
+      color: #fff;
+      font-weight: bold;
+      font-size: 12px;
+      padding: 3px 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    .title-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .title-icon {
+      font-size: 14px;
+    }
+
+    .title-bar-buttons {
+      display: flex;
+      gap: 2px;
+    }
+
+    .title-btn {
+      width: 16px;
+      height: 14px;
+      background: #c0c0c0;
+      border-top: 1px solid #fff;
+      border-left: 1px solid #fff;
+      border-right: 1px solid #808080;
+      border-bottom: 1px solid #808080;
+      font-size: 9px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #000;
+    }
+
+    .title-btn:active {
+      border-top: 1px solid #808080;
+      border-left: 1px solid #808080;
+      border-right: 1px solid #fff;
+      border-bottom: 1px solid #fff;
+    }
+
+    /* 메뉴바 */
+    .menu-bar {
+      background: #c0c0c0;
+      padding: 2px 4px;
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid #808080;
+    }
+
+    .menu-item {
+      padding: 2px 8px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .menu-item:hover {
+      background: #000080;
+      color: #fff;
+    }
+
+    /* 콘텐츠 영역 */
+    .window-body {
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    /* 패널 (sunken) */
+    .panel {
+      background: #c0c0c0;
+      border-top: 2px solid #808080;
+      border-left: 2px solid #808080;
+      border-right: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      padding: 10px;
+    }
+
+    /* 프로필 패널 */
+    .profile-panel {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .avatar-box {
+      width: 72px;
+      height: 72px;
+      background: #fff;
+      border-top: 2px solid #808080;
+      border-left: 2px solid #808080;
+      border-right: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      flex-shrink: 0;
+    }
+
+    .profile-info h1 {
+      font-size: 16px;
+      font-weight: bold;
+      color: #000080;
+    }
+
+    .profile-info .subtitle {
+      font-size: 12px;
+      color: #444;
+      margin-top: 2px;
+    }
+
+    .profile-info .bio {
+      font-size: 12px;
+      color: #222;
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    /* 섹션 라벨 */
+    .section-label {
+      font-size: 11px;
+      font-weight: bold;
+      color: #000080;
+      margin-bottom: 4px;
+      border-bottom: 1px solid #808080;
+      padding-bottom: 2px;
+    }
+
+    /* 정보 그리드 */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+    }
+
+    .info-row {
+      display: flex;
+      gap: 4px;
+      font-size: 12px;
+    }
+
+    .info-key {
+      color: #444;
+      min-width: 40px;
+    }
+
+    .info-val {
+      font-weight: bold;
+    }
+
+    /* 기술 스택 태그 */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .skill-tag {
+      background: #c0c0c0;
+      border-top: 1px solid #fff;
+      border-left: 1px solid #fff;
+      border-right: 1px solid #808080;
+      border-bottom: 1px solid #808080;
+      padding: 2px 8px;
+      font-size: 11px;
+      cursor: default;
+    }
+
+    .skill-tag:active {
+      border-top: 1px solid #808080;
+      border-left: 1px solid #808080;
+      border-right: 1px solid #fff;
+      border-bottom: 1px solid #fff;
+    }
+
+    /* 연락처 버튼 */
+    .contact-buttons {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .win-btn {
+      background: #c0c0c0;
+      border-top: 2px solid #fff;
+      border-left: 2px solid #fff;
+      border-right: 2px solid #808080;
+      border-bottom: 2px solid #808080;
+      padding: 4px 14px;
+      font-size: 12px;
+      font-family: Arial, sans-serif;
+      cursor: pointer;
+      text-decoration: none;
+      color: #000;
+      display: inline-block;
+    }
+
+    .win-btn:hover {
+      background: #d4d0c8;
+    }
+
+    .win-btn:active {
+      border-top: 2px solid #808080;
+      border-left: 2px solid #808080;
+      border-right: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      padding: 5px 13px 3px 15px;
+    }
+
+    /* 상태 표시줄 */
+    .status-bar {
+      background: #c0c0c0;
+      border-top: 1px solid #808080;
+      padding: 2px 6px;
+      font-size: 11px;
+      color: #444;
+      display: flex;
+      gap: 8px;
+    }
+
+    .status-panel {
+      border-top: 1px solid #808080;
+      border-left: 1px solid #808080;
+      border-right: 1px solid #fff;
+      border-bottom: 1px solid #fff;
+      padding: 1px 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="window">
+
+    <!-- 타이틀 바 -->
+    <div class="title-bar">
+      <div class="title-bar-left">
+        <span class="title-icon">🪟</span>
+        <span>자기소개 - 김준혁.html</span>
+      </div>
+      <div class="title-bar-buttons">
+        <div class="title-btn">_</div>
+        <div class="title-btn">□</div>
+        <div class="title-btn">✕</div>
+      </div>
+    </div>
+
+    <!-- 메뉴바 -->
+    <div class="menu-bar">
+      <span class="menu-item">파일(F)</span>
+      <span class="menu-item">편집(E)</span>
+      <span class="menu-item">보기(V)</span>
+      <span class="menu-item">도움말(H)</span>
+    </div>
+
+    <!-- 본문 -->
+    <div class="window-body">
+
+      <!-- 프로필 -->
+      <div class="panel profile-panel">
+        <div class="avatar-box">😊</div>
+        <div class="profile-info">
+          <h1>김준혁</h1>
+          <div class="subtitle">웹 개발자 · 서울, 대한민국</div>
+          <div class="bio">
+            안녕하세요! 저는 사용자 친화적인 웹 서비스를 만드는 것을<br>
+            좋아하는 개발자입니다. 새로운 기술 배우는 것을 즐깁니다.
+          </div>
+        </div>
+      </div>
+
+      <!-- 기본 정보 -->
+      <div class="panel">
+        <div class="section-label">기본 정보</div>
+        <div class="info-grid">
+          <div class="info-row">
+            <span class="info-key">나이</span>
+            <span class="info-val">25세</span>
+          </div>
+          <div class="info-row">
+            <span class="info-key">학력</span>
+            <span class="info-val">컴퓨터공학과</span>
+          </div>
+          <div class="info-row">
+            <span class="info-key">경력</span>
+            <span class="info-val">3년</span>
+          </div>
+          <div class="info-row">
+            <span class="info-key">거주지</span>
+            <span class="info-val">서울특별시</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 기술 스택 -->
+      <div class="panel">
+        <div class="section-label">기술 스택</div>
+        <div class="skills">
+          <span class="skill-tag">HTML / CSS</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Git</span>
+        </div>
+      </div>
+
+      <!-- 취미 -->
+      <div class="panel">
+        <div class="section-label">취미 &amp; 관심사</div>
+        <div style="font-size:12px;">독서, 코딩 사이드 프로젝트, 등산, 커피 탐방</div>
+      </div>
+
+      <!-- 연락처 -->
+      <div class="panel">
+        <div class="section-label">연락처</div>
+        <div class="contact-buttons">
+          <a class="win-btn" href="mailto:example@email.com">✉ 이메일</a>
+          <a class="win-btn" href="#">💼 GitHub</a>
+          <a class="win-btn" href="#">🔗 LinkedIn</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 상태 표시줄 -->
+    <div class="status-bar">
+      <span class="status-panel">준비</span>
+      <span class="status-panel">마지막 수정: 2026-05-12</span>
+    </div>
+
+  </div>
+</body>
+</html>
