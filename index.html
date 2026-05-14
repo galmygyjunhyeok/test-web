@@ -854,6 +854,7 @@ const DL = { level:null, era:null, username:'' };
 let P = JSON.parse(localStorage.getItem('profile98'))  || {...DP};
 let A = JSON.parse(localStorage.getItem('account98'))  || {...DA};
 let L = JSON.parse(localStorage.getItem('ai-level98')) || {...DL};
+let currentUserId = null;
 
 /* ════════════════════════════════════════
    에라 정보
@@ -964,7 +965,7 @@ function openSettings() {
   document.getElementById('f-hint').value    = A.hint;
 
   // galmygy 전용 디자인 탭 표시 여부
-  const isAdmin = A.id === 'galmygy';
+  const isAdmin = currentUserId === 'galmygy';
   document.getElementById('tab-design-btn').style.display = isAdmin ? '' : 'none';
 
   // 현재 테마를 기억 (취소 시 복원용)
@@ -1309,6 +1310,7 @@ function loginManual() {
 function guestLogin() { completeLogin(null); }
 
 function completeLogin(userId) {
+  currentUserId = userId;
   const overlay = document.getElementById('login-overlay');
   overlay.style.transition = 'opacity .4s';
   overlay.style.opacity = '0';
